@@ -5,8 +5,8 @@ from tqdm import tqdm
 from transformers import AutoTokenizer,BertModel
 from arabert import ArabertPreprocessor
 
-tokenizer = AutoTokenizer.from_pretrained("aubmindlab/bert-large-arabertv02")
-model = BertModel.from_pretrained("aubmindlab/bert-large-arabertv02")
+tokenizer = AutoTokenizer.from_pretrained("aubmindlab/bert-base-arabertv02")
+model = BertModel.from_pretrained("aubmindlab/bert-base-arabertv02")
 preprocess_model_name = "bert-base-arabertv2"
 arabert_prep = ArabertPreprocessor(model_name=preprocess_model_name)
 
@@ -46,6 +46,7 @@ def Inference(Model_Path,text):
     X = Preprocess_Input(text=text)
     res = model.predict(X)
     Index = np.argmax(res)
-    print(Labels[Index])
-
-
+    Res_List = list(res[0])
+    print("Fake: ",round(Res_List[0]*100,4),"%")
+    print("Real: ",round(Res_List[1]*100,4),"%")
+    #print(Labels[Index])

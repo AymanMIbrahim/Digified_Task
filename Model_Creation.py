@@ -19,12 +19,9 @@ def create_model():
     print("Target Shape: ", Y.shape)
 
     input_ = layers.Input(shape=[X.shape[1], X.shape[2]], name='input')
-    x = layers.Bidirectional(layers.LSTM(32, dropout=0.2, return_sequences=True), name='bidirectional-lstm_1')(
+    x = layers.Bidirectional(layers.LSTM(32, dropout=0.2), name='bidirectional-lstm_1')(
         input_)
-    x = layers.Dropout(0.2, name='dropout1')(x)
-    x = layers.Bidirectional(layers.LSTM(16, dropout=0.2, kernel_regularizer=L1L2(l1=0.01, l2=0.0)),
-                             name='bidirectional-lstm_4')(x)
-    x = layers.Dense(64, activation='relu', name='dense')(x)
+    x = layers.Dense(256, activation='relu', name='dense')(x)
     output = layers.Dense(2, activation='softmax', name='classification')(x)
     model = models.Model(input_, output)
     opt = keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9)

@@ -9,14 +9,14 @@ import pickle
 def Data_preprocessing():
     with open('Real_Names.pkl', 'rb') as f:
         Real_Names = pickle.load(f)
-        Real_Names = Real_Names[0:10000]
+        Real_Names = Real_Names[0:25000]
     with open('Fake_Names.pkl', 'rb') as f:
         Fake_Names = pickle.load(f)
-        Fake_Names = Fake_Names[0:10000]
+        Fake_Names = Fake_Names[0:25000]
 
 
-    tokenizer = AutoTokenizer.from_pretrained("aubmindlab/bert-large-arabertv02")
-    model = BertModel.from_pretrained("aubmindlab/bert-large-arabertv02")
+    tokenizer = AutoTokenizer.from_pretrained("aubmindlab/bert-base-arabertv02")
+    model = BertModel.from_pretrained("aubmindlab/bert-base-arabertv02")
     preprocess_model_name = "bert-base-arabertv2"
     arabert_prep = ArabertPreprocessor(model_name=preprocess_model_name)
     X = []
