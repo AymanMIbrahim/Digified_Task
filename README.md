@@ -5,7 +5,7 @@
 *  Model creation: Which is creating bi-directional lstm model for training
 *  Inference and API creation: Which is a flask API for testing our model
 ## Model and Important files to Download:
-* Weights: https://drive.google.com/file/d/1-2AwPJvn1e7UTIF7vm7PyYk-w1lpwTCG/view?usp=share_link
+* Weights: https://drive.google.com/file/d/10B3-HGvJu_kE1nsFQVUHnsPT6UtputtD/view?usp=share_link
 * Data: https://drive.google.com/file/d/1VsJytXi6IqbUB0sXQ6G5sgasNLGQ-anm/view?usp=share_link
 * Target: https://drive.google.com/file/d/13NqB5hyx7-jKasKUrZ9Y34R5X5goYOic/view?usp=share_link
 * Real Name:https://drive.google.com/file/d/1l7qfmDEqGSJFwX9Zpkd6tuhRlLL3pNWL/view?usp=share_link
