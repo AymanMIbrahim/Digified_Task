@@ -12,7 +12,7 @@ tokenizer = AutoTokenizer.from_pretrained("aubmindlab/bert-base-arabertv02")
 model = BertModel.from_pretrained("aubmindlab/bert-base-arabertv02")
 preprocess_model_name = "bert-base-arabertv2"
 arabert_prep = ArabertPreprocessor(model_name=preprocess_model_name)
-prediction_model = keras.models.load_model("./weights/BERT_BI-LSTM-V6_Digified_Text_Classification_24_0.87.hdf5")
+prediction_model = keras.models.load_model("./weights/BERT_BI-LSTM-V1_Digified_Text_Classification_07_0.88.hdf5")
 
 def Preprocess_Input(text):
     global tokenizer,model,preprocess_model_name,arabert_prep
