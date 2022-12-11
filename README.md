@@ -31,4 +31,5 @@
     "Real_Conf": "0.17"
 }
 ## Results
-![ Result ](https://github.com/AymanMIbrahim/Digified_Task/blob/main/Screenshot%20from%202022-12-11%2010-15-38.png)
+![ Fake Results ](https://github.com/AymanMIbrahim/Digified_Task/blob/main/Screenshot%20from%202022-12-11%2010-15-38.png)
+![ Real Results ](https://github.com/AymanMIbrahim/Digified_Task/blob/main/Screenshot%20from%202022-12-11%2010-16-03.png)
