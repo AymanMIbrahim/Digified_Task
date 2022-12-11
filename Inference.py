@@ -4,11 +4,15 @@ import numpy as np
 from tqdm import tqdm
 from transformers import AutoTokenizer,BertModel
 from arabert import ArabertPreprocessor
+from flask import Flask,request,jsonify
+import os
 
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 tokenizer = AutoTokenizer.from_pretrained("aubmindlab/bert-base-arabertv02")
 model = BertModel.from_pretrained("aubmindlab/bert-base-arabertv02")
 preprocess_model_name = "bert-base-arabertv2"
 arabert_prep = ArabertPreprocessor(model_name=preprocess_model_name)
+prediction_model = keras.models.load_model("./weights/BERT_BI-LSTM-V6_Digified_Text_Classification_24_0.87.hdf5")
 
 def Preprocess_Input(text):
     global tokenizer,model,preprocess_model_name,arabert_prep
@@ -40,13 +44,23 @@ def Preprocess_Input(text):
 
         return X
 
-def Inference(Model_Path,text):
-    Labels = ["Fake","Real"]
-    model = keras.models.load_model(Model_Path)
-    X = Preprocess_Input(text=text)
-    res = model.predict(X)
-    Index = np.argmax(res)
-    Res_List = list(res[0])
-    print("Fake: ",round(Res_List[0]*100,4),"%")
-    print("Real: ",round(Res_List[1]*100,4),"%")
-    #print(Labels[Index])
+app = Flask(__name__)
+
+@app.route('/test',methods=["POST"])
+def Inference():
+    global prediction_model
+    if request.method == "POST":
+        req_json = request.json
+        test_name = req_json["Name"]
+        X = Preprocess_Input(text=test_name)
+        res = prediction_model.predict(X)
+        Index = np.argmax(res)
+        Res_List = list(res[0])
+        Real = str(round(Res_List[1]*100,2))
+        Fake = str(round(Res_List[0]*100,2))
+
+        return jsonify({"Real_Conf": Real, "Fake_Conf": Fake})
+
+
+if __name__ == '__main__':
+    app.run(debug=False,port=9090)

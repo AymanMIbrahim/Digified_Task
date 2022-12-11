@@ -1,10 +1,8 @@
 from tensorflow import keras
 from tensorflow.keras import layers,models
 from sklearn.model_selection import train_test_split
-from tensorflow.keras.regularizers import L1L2
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 from tensorflow.keras.callbacks import ReduceLROnPlateau
-import tensorflow as tf
 import pickle
 
 
@@ -19,12 +17,11 @@ def create_model():
     print("Target Shape: ", Y.shape)
 
     input_ = layers.Input(shape=[X.shape[1], X.shape[2]], name='input')
-    x = layers.Bidirectional(layers.LSTM(32, dropout=0.2), name='bidirectional-lstm_1')(
-        input_)
+    x = layers.Bidirectional(layers.LSTM(128, dropout=0.2), name='bidirectional-lstm_1')(input_)
     x = layers.Dense(256, activation='relu', name='dense')(x)
     output = layers.Dense(2, activation='softmax', name='classification')(x)
     model = models.Model(input_, output)
-    opt = keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9)
+    opt = keras.optimizers.Adam(learning_rate=0.0001, beta_1=0.9)
     model.compile(optimizer=opt, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     print(model.summary())
 
