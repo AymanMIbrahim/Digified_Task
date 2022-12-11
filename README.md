@@ -12,3 +12,15 @@
 * Fake Name: https://drive.google.com/file/d/1rGKawhqVA-xf00knvYNPF4h87lwBEjKJ/view?usp=share_link
 ## Installing dependencies:
 * pip install -r requirements.txt
+## Inference:
+* Run Inference.py to make the server running 
+* Use post man in order to send Post request to the code with json file like this
+{
+    "Name": "ايمن محمد ابراهيم"
+}
+* The Input Key should called "Name"
+* The output should be something like this
+{
+    "Fake_Conf": "99.83",
+    "Real_Conf": "0.17"
+}
