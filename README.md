@@ -10,3 +10,5 @@
 * Target: https://drive.google.com/file/d/13NqB5hyx7-jKasKUrZ9Y34R5X5goYOic/view?usp=share_link
 * Real Name:https://drive.google.com/file/d/1l7qfmDEqGSJFwX9Zpkd6tuhRlLL3pNWL/view?usp=share_link
 * Fake Name: https://drive.google.com/file/d/1rGKawhqVA-xf00knvYNPF4h87lwBEjKJ/view?usp=share_link
+## Installing dependencies:
+* pip install -r requirements.txt
