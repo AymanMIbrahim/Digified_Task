@@ -12,6 +12,12 @@
 * Fake Name: https://drive.google.com/file/d/1rGKawhqVA-xf00knvYNPF4h87lwBEjKJ/view?usp=share_link
 ## Installing dependencies:
 * pip install -r requirements.txt
+## Training:
+* open main.py
+* import Data_Creation and run Generate_Data in order to generate data
+* import Data_preprocessing and run Data_preprocessing in order to convert the input to feature tensor for each name in the dataset
+* import model_creation.py and create model using create_model
+* using the created model now you can train your model using train(created_model , path_to_weights_folder , version)
 ## Inference:
 * Run Inference.py to make the server running 
 * Use post man in order to send Post request to the code with json file like this
