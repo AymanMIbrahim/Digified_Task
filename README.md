@@ -31,4 +31,4 @@
     "Real_Conf": "0.17"
 }
 ## Results
-![alt text](Screenshot from 2022-12-11 10-15-38.png)
+![Result]([Screenshot from 2022-12-11 10-15-38.png](https://github.com/AymanMIbrahim/Digified_Task/blob/main/Screenshot%20from%202022-12-11%2010-15-38.png?raw=true))
